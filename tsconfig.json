@@ -24,10 +24,8 @@
   // },
   "include": [
     "src/**/*.ts",
-    "spec/**/*.ts",
-    "config.ts",
-    "scripts",
-    "eslint.config.ts"
+    "spec/**/*.ts"
+   
   ],
   "exclude": [
     "src/public/*"

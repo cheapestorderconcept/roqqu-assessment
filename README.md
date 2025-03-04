@@ -29,36 +29,25 @@ To install and set up the project, follow these steps:
 
 ## Usage
 
-To start the project, use the following command:
+To start the project in development, use the following command:
 ```sh
-npm start
+npm run dev
+```
+To start the project in production, use the following command:
+```sh
+npm run build && npm run start
 ```
 
 ## Features
 
-- Feature 1: Description of feature 1.
-- Feature 2: Description of feature 2.
-- Feature 3: Description of feature 3.
+- Feature 1: User Management.
+- Feature 2: Address Management.
+- Feature 3: Post Management.
 
-## Contributing
+## Documentation
 
-Contributions are welcome! Please follow these steps to contribute:
+Find attached the documentation link for appropriate endpoint testing.
 
-1. Fork the repository.
-2. Create a new branch:
-    ```sh
-    git checkout -b feature-branch
-    ```
-3. Make your changes and commit them:
-    ```sh
-    git commit -m "Add some feature"
-    ```
-4. Push to the branch:
-    ```sh
-    git push origin feature-branch
-    ```
-5. Open a pull request.
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+

@@ -1,7 +1,7 @@
 // import morgan from 'morgan';;
 import express, {Request, Response, NextFunction} from 'express';
 import logger from 'jet-logger';
-import apiRouter from '../src/routes';
+import apiRouter from './routes';
 const PORT = process.env.PORT || 3000;
 
 const app = express();

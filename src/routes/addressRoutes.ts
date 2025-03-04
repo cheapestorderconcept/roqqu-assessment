@@ -1,4 +1,4 @@
-import AddressService from '../services/address/addressService';
+import AddressService from './../services/address/AddressService';
 import { Request, Response } from 'express';
 
 async function createNewAddress(req:Request, res: Response){

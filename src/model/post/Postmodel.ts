@@ -1,4 +1,4 @@
-import db from '../../../db/database';
+import db from '../../db/database';
 import { IPost } from './post.interface';
 
 

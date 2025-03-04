@@ -1,5 +1,5 @@
 import { IAddress } from "./address.interface";
-import db from '../../../db/database';
+import db from '../../db/database';
 
 async function addNewAddress(body:IAddress, userId:number){
     try {

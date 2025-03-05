@@ -4,10 +4,10 @@ import { IPost } from './post.interface';
 
 
 
-async   function  createNewPost(body: IPost, userId:number): Promise<IPost | undefined> {
+async   function  createNewPost(body: IPost,): Promise<IPost | undefined> {
     try {
         const posts:IPost =   await db.table(DbTableName.POST).insert({...body});
-        return posts;
+        return body;
     } catch (error) {
         console.log(error)
         throw new Error(error);

@@ -3,19 +3,18 @@ import { Request, Response } from 'express';
 import HttpResponse from '../../utils/httpsResponse';
 import HttpStatusCode from '../../common/HttpStatusCode';
 import logger from 'jet-logger';
-import { IPost } from "@src/model/post/post.interface";
+import { IPost } from "../../model/post/post.interface";
 import userModel from "../../model/user/userModel";
 async function createNewPost(req: Request, res: Response) {
   try {
-    const  body = req.body;
-    const userId: number = req.body.userId as unknown as  number;
-    const user = await userModel.getUserById(userId as unknown as number);
+    const  body:IPost = req.body;
+    const user = await userModel.getUserById(body.userId );
     if (!user) {
     /***prevent creation of post if user doesn't exist*/
      HttpResponse.error(res,HttpStatusCode.BAD_REQUEST, 'No user is with provided id', 400);
      return;
     }
-    const newPost = await Postmodel.createNewPost(body, userId);
+    const newPost = await Postmodel.createNewPost(body);
     if (newPost) {
        HttpResponse.success(res, HttpStatusCode.CREATED, 'Post created successfully', newPost);
     }else{

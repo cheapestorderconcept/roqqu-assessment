@@ -4,24 +4,25 @@ import { Request, Response } from 'express';
 import HttpResponse from '../../utils/httpsResponse';
 import HttpStatusCode from '../../common/HttpStatusCode';
 import logger from 'jet-logger';
+import { IAddress } from '../../model/address/address.interface';
 
 
 async function createNewAddress(req:Request ,   res:Response){
    try {
-      const body = req.body;
-        const userId:number = req.body.userId as unknown as number;
-        const user = await userModel.getUserById(userId as unknown as number);
+      const body:IAddress = req.body;
+        // const userId:number = req.body.userId as unknown as number;
+        const user = await userModel.getUserById(body.userId );
         if (!user) {
         /***prevent creation of address if user doesn't exist*/
          HttpResponse.error(res,HttpStatusCode.BAD_REQUEST, 'No user is with provided id', 400);
          return;
         }
-        const hasAddress = await AddressModel.getAddressByUserId(userId);
+        const hasAddress = await AddressModel.getAddressByUserId(body.userId);
        if (hasAddress) {
         HttpResponse.error(res,HttpStatusCode.BAD_REQUEST, 'You have an address created. Proceed to update for modification', 400);
         return;
        }
-      const  address  = AddressModel.addNewAddress(body , req.params.userId as unknown as number)
+      const  address  = AddressModel.addNewAddress(body ,  )
       HttpResponse.success(res, HttpStatusCode.CREATED, 'Address successfully created', address);
    } catch (error) {
     logger.err(error);

@@ -2,13 +2,10 @@ import { IAddress } from "./address.interface";
 import db from '../../db/database';
 import { DbTableName } from "../../common/constants";
 
-async function addNewAddress(body:IAddress, userId:number){
+async function addNewAddress(body:IAddress){
     try {
-        const newAddress: IAddress = {
-            ...body
-        };
-        await db.table(DbTableName.ADDRESS).insert({...newAddress,});
-        return newAddress;
+        await db.table(DbTableName.ADDRESS).insert({...body,});
+        return body;
            } catch (error) {
             console.log(error)
            throw new Error(error);

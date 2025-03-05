@@ -11,7 +11,7 @@ async function createNewPost(req: Request, res: Response) {
     const userId: number = req.body.userId as unknown as  number;
     const user = await userModel.getUserById(userId as unknown as number);
     if (!user) {
-    /***prevent creation of address if user doesn't exist*/
+    /***prevent creation of post if user doesn't exist*/
      HttpResponse.error(res,HttpStatusCode.BAD_REQUEST, 'No user is with provided id', 400);
      return;
     }

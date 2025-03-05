@@ -10,7 +10,7 @@ async function createNewAddress(req:Request ,   res:Response){
    try {
       const body = req.body;
         const userId:number = req.body.userId as unknown as number;
-        const user = await userModel.getUserById(req.params.id as unknown as number);
+        const user = await userModel.getUserById(userId as unknown as number);
         if (!user) {
         /***prevent creation of address if user doesn't exist*/
          HttpResponse.error(res,HttpStatusCode.BAD_REQUEST, 'No user is with provided id', 400);

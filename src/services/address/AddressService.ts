@@ -18,7 +18,7 @@ async function createNewAddress(req:Request ,   res:Response){
         }
         const hasAddress = await AddressModel.getAddressByUserId(userId);
        if (hasAddress) {
-        HttpResponse.error(res,HttpStatusCode.BAD_REQUEST, 'You have an address created. Proceed to update for modification', 500);
+        HttpResponse.error(res,HttpStatusCode.BAD_REQUEST, 'You have an address created. Proceed to update for modification', 400);
         return;
        }
       const  address  = AddressModel.addNewAddress(body , req.params.userId as unknown as number)

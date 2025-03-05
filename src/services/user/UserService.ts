@@ -37,7 +37,7 @@ async function getAllUsers(req:Request ,   res:Response) {
         if(users!.length>0){
              HttpResponse.success(res, HttpStatusCode.OK, 'Users retrieved successfully', users);
         }else{
-           HttpResponse.success(res, HttpStatusCode.NO_CONTENT, 'You currently have no user', users);
+           HttpResponse.success(res, HttpStatusCode.OK, 'You currently have no user', users);
         }
     } catch (error) {
         /***Write error into files, send to channel for alerts or

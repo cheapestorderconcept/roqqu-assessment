@@ -23,7 +23,9 @@
   //   // ],
   // },
   "include": [
-    "src/**/*"
+    "src/**/*.ts",
+    "spec/**/*.ts",
+    "src/eslint.config.ts"
   ],
   "exclude": [
     "src/public/*"

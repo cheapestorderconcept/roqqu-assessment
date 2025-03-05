@@ -1,3 +1,4 @@
+import { DbTableName } from '../../common/constants';
 import db from '../../db/database';
 import { IPost } from './post.interface';
 
@@ -5,7 +6,7 @@ import { IPost } from './post.interface';
 
 async   function  createNewPost(body: IPost, userId:number): Promise<IPost | undefined> {
     try {
-        const posts:IPost =   await db.table('posts').insert({...body});
+        const posts:IPost =   await db.table(DbTableName.POST).insert({...body});
         return posts;
     } catch (error) {
         console.log(error)
@@ -16,7 +17,7 @@ async   function  createNewPost(body: IPost, userId:number): Promise<IPost | und
 
 async function getUserPost(userId:number){
     try {
-        const posts:IPost[] = await db.table('posts').select('*').where({userId: userId});
+        const posts:IPost[] = await db.table(DbTableName.POST).select('*').where({userId: userId});
         return posts;
     } catch (error) {
         console.log(error)
@@ -26,7 +27,7 @@ async function getUserPost(userId:number){
 
 async function deletePostById(postId:number){
     try {
-        const posts = await db.table('posts').delete().where('id', postId);
+        const posts = await db.table(DbTableName.POST).delete().where('id', postId);
         return posts;
     } catch (error) {
         console.log(error)

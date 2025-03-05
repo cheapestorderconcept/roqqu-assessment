@@ -7,7 +7,7 @@ This project is a technical assessment for Roqqu. It demonstrates the implementa
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Documentation](#documentation)
+
 
 
 ## Installation
@@ -25,6 +25,7 @@ To install and set up the project, follow these steps:
 3. Install the dependencies:
     ```sh
     npm install
+    npm run migration
     ```
 
 ## Usage
@@ -33,10 +34,7 @@ To start the project in development, use the following command:
 ```sh
 npm run dev
 ```
-To start the project in production, use the following command:
-```sh
-npm run build && npm run start
-```
+
 
 ## Features
 
@@ -44,9 +42,8 @@ npm run build && npm run start
 - Feature 2: Address Management.
 - Feature 3: Post Management.
 
-## Documentation
 
-Find attached the documentation link for appropriate endpoint testing.
+
 
 
 

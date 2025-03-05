@@ -1,12 +1,13 @@
 import { IAddress } from "./address.interface";
 import db from '../../db/database';
+import { DbTableName } from "../../common/constants";
 
 async function addNewAddress(body:IAddress, userId:number){
     try {
         const newAddress: IAddress = {
             ...body
         };
-        await db.table('addresses').insert({...newAddress,});
+        await db.table(DbTableName.ADDRESS).insert({...newAddress,});
         return newAddress;
            } catch (error) {
             console.log(error)
@@ -15,11 +16,11 @@ async function addNewAddress(body:IAddress, userId:number){
 }
 
 async function getAddressByUserId(id:number){
-  return await  db.table('addresses').select('*').where('userId', id).first();
+  return await  db.table(DbTableName.ADDRESS).select('*').where('userId', id).first();
 }
 
 async function updateUserAddress(body:IAddress, userId:number){
- return await  db.table('addresses').update(body).where('userId', userId); 
+ return await  db.table(DbTableName.ADDRESS).update(body).where('userId', userId); 
 }
 
 export  default  {
